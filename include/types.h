@@ -109,10 +109,16 @@ typedef struct tile32 {
 #undef pixel
 #endif
 
+#if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 202311L
 #ifndef bool
 typedef unsigned char bool;
+#endif
+#ifndef false
 #define false 0
+#endif
+#ifndef true
 #define true 1
-#endif /* bool */
+#endif
+#endif /* !C23 */
 
 #endif /* TYPES_H */
